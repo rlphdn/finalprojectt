@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> CurbaCraze </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="icon" href="curba.png" type="image/icon type">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="foodmenu.html">Menu</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+            </ul>
+            <h1 class="logo"> CurbaCraze </h1>
+        </div>
+    </nav>
+    <section class="showcase-area" id="showcase">
+        <div class="showcase-container">
+            <b class="main-title" id="home">Eat Right Food</b>
+            <p>Eat Healthy, it is good for our health.</p>
+            <a href="foodmenu.html" class="btn btn-primary">Menu</a>
+        </div>
+    </section>
+    <section id="about">
+        <div class="about-wrapper container">
+            <div class="about-text">
+                <p class="small">About Us</p>
+                <h2>Welcome to CurbaCraze: Where Every Meal Feels Like Home</h2>
+                <p>
+                    CurbaCraze has been a dining go-to place in Buenavista, Marinduque since October 8, 2022. This restaurant is open from 8:00 am to 9:00 pm, with last order at 8:30 pm. From being a simple gotohan good for motorcycle riders, it has grown into this success boasting a multiplicity of bestsellers: Hot and Iced coffees, Milk teas, Calamares, Halo-halo, Samgyup, and Sisig.
+                </p>
+            </div>
+            <div class="about-img">
+                <img src="curba.png"/>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+        <h2> CurbaCraze &copy; all rights reserved. </h2>
+    </footer>
+    <!-- .................../ JS Code for smooth scrolling /...................... -->
+    <script>
+        // Smooth scrolling 
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Responsive navigation menu toggle
+        document.querySelector('.hamburger-lines').addEventListener('click', () => {
+            document.querySelector('.menu-items').classList.toggle('active');
+        });
+
+        // Close the menu when a link is clicked
+        document.querySelectorAll('.menu-items a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.menu-items').classList.remove('active');
+            });
+        });
+
+        // Form validation
+        document.querySelector('.form-container button').addEventListener('click', (e) => {
+            const name = document.querySelector('input[name="name"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+            const message = document.querySelector('textarea[name="message"]').value;
+
+            if (name === "" || email === "" || message === "") {
+                e.preventDefault();
+                alert("Please fill in all fields.");
+            } else if (!/\S+@\S+\.\S+/.test(email)) {
+                e.preventDefault();
+                alert("Please enter a valid email address.");
+            }
+        });
+    </script>
+</body>
+</html>
